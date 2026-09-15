@@ -1,0 +1,12 @@
+{
+  "contacts": [
+    {
+      "id": "1776692080472",
+      "date": "2026-04-20T13:34:40.472Z",
+      "name": "System Test",
+      "email": "test@example.com",
+      "message": "Testing server connectivity"
+    }
+  ],
+  "estimates": []
+}
