@@ -1,12 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Link } from 'react-router-dom';
 
 export default function Hero() {
   const [active, setActive] = useState(false);
+  const videoRef = useRef(null);
 
   useEffect(() => {
     setActive(true);
+    
+    // Explicitly set muted and play the video to bypass mobile browser restrictions
+    if (videoRef.current) {
+      videoRef.current.defaultMuted = true;
+      videoRef.current.muted = true;
+      videoRef.current.play().catch((error) => {
+        console.warn("Video autoplay blocked by browser:", error);
+      });
+    }
   }, []);
 
   const titleReveal = {
@@ -27,6 +37,7 @@ export default function Hero() {
       {/* Background Video Layer */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <video 
+          ref={videoRef}
           src="/hero-video.mp4" 
           autoPlay 
           loop 
