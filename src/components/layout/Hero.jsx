@@ -23,8 +23,21 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-[calc(100svh-8rem)] flex flex-col justify-center px-6 py-8 md:py-12 border-b border-white/5 overflow-hidden mesh-gradient">
-      <div className="container mx-auto">
+    <section className="relative min-h-[calc(100svh-8rem)] flex flex-col justify-center px-6 py-8 md:py-12 border-b border-white/5 overflow-hidden">
+      {/* Background Video Layer */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <video 
+          src="/hero-video.mp4" 
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+          className="w-full h-full object-cover object-center opacity-80"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-black/10" />
+      </div>
+
+      <div className="container mx-auto relative z-10">
         <div className="flex flex-col gap-0 relative z-10 pt-4 md:pt-8">
           <div className="overflow-hidden">
             <motion.h1
@@ -34,7 +47,7 @@ export default function Hero() {
               variants={titleReveal}
               className="h-xl tracking-[-0.07em] leading-[0.85] md:leading-[0.8]"
             >
-              Core 1<span className="text-[#808080]">.</span>
+              Build Fast<span className="text-[#808080]">.</span>
             </motion.h1>
           </div>
           <div className="overflow-hidden">
@@ -45,8 +58,8 @@ export default function Hero() {
               variants={titleReveal}
               className="flex items-center gap-4"
             >
-              <h1 className="h-xl tracking-[-0.07em] leading-[0.85] md:leading-[0.8]">Digital</h1>
-              <div className="h-[2px] bg-white/10 flex-1 mt-[4vw] rounded-full hidden md:block" />
+              <h1 className="h-xl tracking-[-0.07em] leading-[0.85] md:leading-[0.8]">Scale</h1>
+              {/* <div className="h-[2px] bg-white/10 flex-1 mt-[4vw] rounded-full hidden md:block" /> */}
             </motion.div>
           </div>
           <div className="overflow-hidden">
@@ -57,7 +70,7 @@ export default function Hero() {
               variants={titleReveal}
               className="h-xl tracking-[-0.07em] text-white/30 leading-[0.85] md:leading-[0.8]"
             >
-              Solutions
+              Easily
             </motion.h1>
           </div>
         </div>
@@ -69,15 +82,22 @@ export default function Hero() {
             transition={{ delay: 1, duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
           >
             <p className="text-base md:text-xl text-white/40 max-w-xl font-light leading-snug tracking-tight mb-6">
-              Core 1 is a premium software development agency. We build scalable,
-              high-performance digital products that help businesses succeed online.
+              Stop losing customers to slow, outdated digital products. We build high-performance web and mobile apps that increase your sales and help your business grow.
             </p>
-              <Link to="/services" className="btn-core group">
+            <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+              <a href="#contact" onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+              }} className="btn-core group">
                 <span className="btn-bg bg-white" />
                 <span className="relative z-10 flex items-center gap-4 group-hover:text-black transition-colors duration-500">
-                  View Our Services
+                  Get a Free Quote
                 </span>
-              </Link>
+              </a>
+              {/* <span className="text-xs text-white/30 flex items-center gap-2 font-bold tracking-wider uppercase mt-4 sm:mt-0">
+                <span className="text-yellow-500 text-lg">★★★★★</span> Rated 5/5
+              </span> */}
+            </div>
           </motion.div>
 
           <motion.div

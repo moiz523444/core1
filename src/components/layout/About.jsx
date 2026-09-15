@@ -22,20 +22,20 @@ export default function About() {
               viewport={{ once: true }}
               className="text-[10px] md:text-xs font-bold tracking-[0.5em] text-accent uppercase font-display block"
             >
-              Who We Are
+              The Problem
             </motion.span>
             <h2 className="text-4xl md:text-8xl tracking-tight md:tracking-tighter leading-[0.95] md:leading-[0.85] break-normal">
-              Who We <br className="hidden md:block" />{" "}
-              <span className="text-white/30">Are.</span>
+              Tech is <br className="hidden md:block" />{" "}
+              <span className="text-white/30">Hard.</span>
             </h2>
           </div>
 
           <div className="space-y-12 text-white/50 text-xl md:text-3xl font-light leading-relaxed max-w-2xl">
             <p>
-              We are a team of expert developers and designers dedicated to creating impactful digital experiences. We focus on clean code, intuitive design, and scalable architecture to deliver products that bring real business value.
+              You have a great idea and a business to run, but dealing with slow developers, buggy code, and missed deadlines is holding you back.
             </p>
             <p className="text-white/30 text-lg md:text-xl">
-              We collaborate with businesses globally to build products that drive results and help them scale.
+              We take the technical headache away. We build reliable, fast, and scalable digital products so you can focus entirely on growing your revenue.
             </p>
           </div>
         </div>
@@ -50,10 +50,10 @@ export default function About() {
             >
               <h4 className="text-xs md:text-sm font-bold tracking-[0.4em] uppercase text-accent mb-10 flex items-center gap-6">
                 <span className="w-12 h-[1px] bg-accent/30 group-hover:w-20 transition-all duration-700" />
-                Our Philosophy
+                Why Choose Us?
               </h4>
               <p className="text-white/40 text-lg md:text-xl leading-relaxed max-w-sm font-light pl-18">
-                Clear communication. Technical excellence. User-centered design. We build solutions that last.
+                We don't just write code. We partner with you to build products that solve real business problems and increase your bottom line.
               </p>
             </motion.div>
 
@@ -66,10 +66,10 @@ export default function About() {
             >
               <h4 className="text-xs md:text-sm font-bold tracking-[0.4em] uppercase text-accent mb-10 flex items-center gap-6">
                 <span className="w-12 h-[1px] bg-accent/30 group-hover:w-20 transition-all duration-700" />
-                Global Reach
+                Zero Headaches
               </h4>
               <p className="text-white/40 text-lg md:text-xl leading-relaxed max-w-sm font-light pl-18">
-                Delivering high-quality digital products to ambitious brands around the world.
+                Clear communication, transparent pricing, and strictly met deadlines. No surprises.
               </p>
             </motion.div>
 
