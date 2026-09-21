@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Link } from 'react-router-dom';
+import Magnetic from '../ui/Magnetic';
 
 export default function Hero() {
   const [active, setActive] = useState(false);
@@ -56,9 +57,9 @@ export default function Hero() {
               initial="hidden"
               animate={active ? "visible" : "hidden"}
               variants={titleReveal}
-              className="h-xl tracking-[-0.07em] leading-[0.85] md:leading-[0.8]"
+              className="h-xl tracking-[-0.07em] leading-[0.85] md:leading-[0.8] text-glow"
             >
-              Build Fast<span className="text-[#808080]">.</span>
+              Build Fast<span className="text-accent">.</span>
             </motion.h1>
           </div>
           <div className="overflow-hidden">
@@ -69,7 +70,7 @@ export default function Hero() {
               variants={titleReveal}
               className="flex items-center gap-4"
             >
-              <h1 className="h-xl tracking-[-0.07em] leading-[0.85] md:leading-[0.8]">Scale</h1>
+              <h1 className="h-xl tracking-[-0.07em] leading-[0.85] md:leading-[0.8] text-glow">Scale</h1>
               {/* <div className="h-[2px] bg-white/10 flex-1 mt-[4vw] rounded-full hidden md:block" /> */}
             </motion.div>
           </div>
@@ -96,15 +97,14 @@ export default function Hero() {
               Stop losing customers to slow, outdated digital products. We build high-performance web and mobile apps that increase your sales and help your business grow.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
-              <a href="#contact" onClick={(e) => {
-                e.preventDefault();
-                document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-              }} className="btn-core group">
-                <span className="btn-bg bg-white" />
-                <span className="relative z-10 flex items-center gap-4 group-hover:text-black transition-colors duration-500">
-                  Get a Free Quote
-                </span>
-              </a>
+              <Magnetic>
+                <a href="#contact" onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+                }} className="btn-premium">
+                  <span>Get a Free Quote</span>
+                </a>
+              </Magnetic>
               {/* <span className="text-xs text-white/30 flex items-center gap-2 font-bold tracking-wider uppercase mt-4 sm:mt-0">
                 <span className="text-yellow-500 text-lg">★★★★★</span> Rated 5/5
               </span> */}
@@ -121,9 +121,13 @@ export default function Hero() {
               <span className="text-[10px] md:text-xs font-bold tracking-[0.4em] uppercase text-accent/40 mb-1">
                 EST. 2026
               </span>
-              <span className="text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase text-white/20">
+              <motion.span 
+                animate={{ y: [0, 8, 0] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                className="text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase text-white/20 mt-4 block"
+              >
                 (Scroll to Discover)
-              </span>
+              </motion.span>
             </div>
           </motion.div>
         </div>
