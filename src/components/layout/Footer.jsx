@@ -2,12 +2,16 @@ import React from "react";
 import Logo from "../ui/Logo";
 import { Link } from 'react-router-dom';
 import { Mail, Phone, Globe, ExternalLink, ArrowUpRight } from "lucide-react";
+import { GlobeCanvas } from "../ui/GlobeCanvas";
 
 export default function Footer() {
   return (
     <footer className="pt-32 pb-12 border-t border-white/5 bg-[#050505] relative overflow-hidden">
+      {/* 3D Globe Background */}
+      <GlobeCanvas />
+      
       {/* Decorative Glow */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[300px] bg-accent/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[300px] bg-accent/5 blur-[120px] rounded-full pointer-events-none z-0" />
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-16 md:gap-24">
