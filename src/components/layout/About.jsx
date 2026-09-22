@@ -74,7 +74,7 @@ export default function About() {
             </motion.div>
 
             <div className="pt-16 pl-18">
-              <button onClick={() => navigate('/about')} className="btn-core text-[10px] font-bold uppercase tracking-[0.3em]">
+              <button onClick={() => navigate('/about')} className="btn-blazincode text-[10px] font-bold uppercase tracking-[0.3em]">
                 <span className="btn-bg bg-accent" />
                 <span className="relative z-10">Learn More About Us</span>
               </button>

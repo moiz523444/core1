@@ -84,11 +84,11 @@ export default function Footer() {
                   Email
                 </span>
                 <a
-                  href="mailto:Contact@core1.co"
+                  href="mailto:Contact@blazincode.co"
                   className="text-lg md:text-xl text-white/70 hover:text-accent transition-colors flex items-center gap-4 break-words"
                 >
                   <Mail size={20} className="text-accent/40 flex-shrink-0" />{" "}
-                  <span className="break-all">Contact@core1.co</span>
+                  <span className="break-all">Contact@blazincode.co</span>
                 </a>
               </li>
               <li className="space-y-3">
@@ -116,7 +116,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-20 md:mt-32 pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 text-[10px] md:text-[11px] font-bold uppercase tracking-[0.3em] text-white/30 text-center md:text-left">
-          <p>© 2026 Core 1 Creative Studio. All Rights Reserved.</p>
+          <p>© 2026 Blazincode Creative Studio. All Rights Reserved.</p>
           <div className="flex gap-12">
             <p className="hover:text-accent transition-colors cursor-pointer">
               Terms of Service

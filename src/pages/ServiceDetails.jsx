@@ -13,7 +13,7 @@ export default function ServiceDetails() {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center space-y-8">
         <h1 className="text-4xl font-display font-bold">SERVICE NOT FOUND</h1>
-        <Link to="/services" className="btn-core">
+        <Link to="/services" className="btn-blazincode">
           <span className="btn-bg bg-white" />
           <span className="relative z-10 text-black">Back to Impact</span>
         </Link>
@@ -86,7 +86,7 @@ export default function ServiceDetails() {
                   {service.process}
                 </p>
                 <div className="mt-12 pt-12 border-t border-white/5">
-                   <button onClick={() => navigate('/contact')} className="btn-core w-full">
+                   <button onClick={() => navigate('/contact')} className="btn-blazincode w-full">
                       <span className="btn-bg bg-white" />
                       <span className="relative z-10 text-[11px] font-bold uppercase tracking-[0.3em] flex items-center justify-center gap-4">
                          Request Technical Brief <ArrowUpRight size={16} />
@@ -104,7 +104,7 @@ export default function ServiceDetails() {
              <h2 className="text-4xl md:text-8xl font-bold uppercase tracking-tighter mb-12">
                 Let's Build <br /> <span className="text-accent">The Future.</span>
              </h2>
-             <Link to="/contact" className="btn-core group">
+             <Link to="/contact" className="btn-blazincode group">
                 <span className="btn-bg bg-white" />
                 <span className="relative z-10 text-[12px] font-bold uppercase tracking-[0.4em] flex items-center gap-6">
                    Initiate Project <ArrowUpRight size={20} />

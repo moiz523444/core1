@@ -23,7 +23,7 @@ export default function AboutPage() {
             Technical <br /> <span className="text-white/30">Authority.</span>
           </h1>
           <p className="text-white/50 text-xl md:text-3xl font-light leading-relaxed max-w-3xl">
-            Core 1 is a design and engineering lab architecting high-performance digital foundations for global visionaries.
+            Blazincode is a design and engineering lab architecting high-performance digital foundations for global visionaries.
           </p>
         </div>
       </section>
@@ -109,7 +109,7 @@ export default function AboutPage() {
             Our team consists of senior engineers and designers who have built products for the world's most ambitious companies.
           </p>
           <div className="flex justify-center">
-             <button onClick={() => navigate('/contact')} className="btn-core">
+             <button onClick={() => navigate('/contact')} className="btn-blazincode">
                 <span className="btn-bg bg-white" />
                 <span className="relative z-10 text-[11px] font-bold uppercase tracking-[0.3em]">Join the Lab</span>
              </button>

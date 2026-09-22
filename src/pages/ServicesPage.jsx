@@ -103,7 +103,7 @@ export default function ServicesPage() {
           <h2 className="text-4xl md:text-7xl font-bold uppercase tracking-tighter mb-12">
             Ready to <span className="text-accent">Scale?</span>
           </h2>
-          <Link to="/contact" className="btn-core group">
+          <Link to="/contact" className="btn-blazincode group">
             <span className="btn-bg bg-white" />
             <span className="relative z-10 text-[11px] font-bold uppercase tracking-[0.3em] text-white group-hover:text-black transition-colors duration-500">
               Launch Your Project

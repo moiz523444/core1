@@ -32,7 +32,7 @@ function ParticleField({ count = 550 }) {
   );
 }
 
-function CoreObject() {
+function BlazincodeObject() {
   const ref = useRef(null);
   useFrame((state) => {
     if (ref.current) {
@@ -67,7 +67,7 @@ export function HeroCanvas() {
         <pointLight position={[3, 2, 4]} intensity={14} color="#22d3ee" />
         <pointLight position={[-3, -2, 2]} intensity={9} color="#6366f1" />
         <Float speed={1.2} rotationIntensity={0.15} floatIntensity={0.2}>
-          <CoreObject />
+          <BlazincodeObject />
         </Float>
         <ParticleField />
         <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.18} />
@@ -117,7 +117,7 @@ function GlobeMesh() {
 
   return (
     <group ref={globeGroupRef}>
-      {/* Inner Glowing Core Sphere */}
+      {/* Inner Glowing Blazincode Sphere */}
       <mesh>
         <sphereGeometry args={[1.15, 36, 36]} />
         <meshBasicMaterial color="#ffffff" transparent opacity={0.02} />

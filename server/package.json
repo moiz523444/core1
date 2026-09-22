@@ -1,7 +1,7 @@
 {
-  "name": "core-1-server",
+  "name": "blazincode-server",
   "version": "1.0.0",
-  "description": "Backend server for Core 1 Agency",
+  "description": "Backend server for Blazincode Agency",
   "main": "index.js",
   "type": "module",
   "scripts": {

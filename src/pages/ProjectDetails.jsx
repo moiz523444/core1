@@ -12,7 +12,7 @@ export default function ProjectDetails() {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center space-y-8">
         <h1 className="text-4xl font-display font-bold">PROJECT NOT FOUND</h1>
-        <Link to="/portfolio" className="btn-core">
+        <Link to="/portfolio" className="btn-blazincode">
           <span className="btn-bg bg-white" />
           <span className="relative z-10 text-black">Back to Vault</span>
         </Link>

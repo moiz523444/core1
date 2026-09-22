@@ -177,19 +177,19 @@ body {
     }
   }
 
-  .btn-core {
+  .btn-blazincode {
     @apply relative inline-flex items-center gap-4 px-10 py-5 rounded-full border border-white/10 transition-all duration-700 hover:border-white/40 overflow-hidden;
   }
 
-  .btn-core .btn-bg {
+  .btn-blazincode .btn-bg {
     @apply absolute inset-0 bg-white translate-y-full transition-transform duration-700 ease-in-out -z-10;
   }
 
-  .btn-core:hover .btn-bg {
+  .btn-blazincode:hover .btn-bg {
     @apply translate-y-0;
   }
 
-  .btn-core:hover {
+  .btn-blazincode:hover {
     @apply text-black;
   }
 

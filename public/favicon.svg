@@ -1,5 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" viewBox="0 0 32 32">
-  <rect width="32" height="32" fill="#000000" rx="8"/>
-  <path d="M24 12.16C22.6 10.8 20.4 10 18 10c-4.42 0-8 3.58-8 8s3.58 8 8 8c2.4 0 4.6-.8 6-2.16" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
-  <path d="M18 13v10" stroke="#808080" stroke-width="2.5" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <defs>
+    <linearGradient id="blaze" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ff3366" />
+      <stop offset="50%" stop-color="#ff6b35" />
+      <stop offset="100%" stop-color="#f7c530" />
+    </linearGradient>
+  </defs>
+  <path d="M30 20 h35 c 20 0, 30 10, 30 25 c 0 12, -8 20, -15 22 c 12 3, 20 12, 20 28 c 0 18, -12 30, -35 30 h-35 v-105 z" fill="none" stroke="url(#blaze)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M30 65 h30" stroke="url(#blaze)" stroke-width="12" stroke-linecap="round"/>
 </svg>

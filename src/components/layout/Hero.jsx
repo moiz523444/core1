@@ -9,7 +9,7 @@ export default function Hero() {
 
   useEffect(() => {
     setActive(true);
-    
+
     // Explicitly set muted and play the video to bypass mobile browser restrictions
     if (videoRef.current) {
       videoRef.current.defaultMuted = true;
@@ -37,12 +37,12 @@ export default function Hero() {
     <section className="relative min-h-[calc(100svh-8rem)] flex flex-col justify-center px-6 py-8 md:py-12 border-b border-white/5 overflow-hidden">
       {/* Background Video Layer */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <video 
+        <video
           ref={videoRef}
-          src="/hero-video.mp4" 
-          autoPlay 
-          loop 
-          muted 
+          src="/hero-video.mp4"
+          autoPlay
+          loop
+          muted
           playsInline
           className="w-full h-full object-cover object-center opacity-80"
         />
@@ -121,7 +121,7 @@ export default function Hero() {
               <span className="text-[10px] md:text-xs font-bold tracking-[0.4em] uppercase text-accent/40 mb-1">
                 EST. 2026
               </span>
-              <motion.span 
+              <motion.span
                 animate={{ y: [0, 8, 0] }}
                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                 className="text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase text-white/20 mt-4 block"
@@ -136,7 +136,7 @@ export default function Hero() {
       {/* Background Text Layer - Optimized for Performance */}
       <div className="absolute top-1/2 left-0 -translate-y-1/2 -z-10 pointer-events-none opacity-[0.03]">
         <h2 className="text-[40vw] md:text-[35vw] font-black uppercase tracking-tighter whitespace-nowrap select-none">
-          CORE 1
+          BLAZINCODE
         </h2>
       </div>
     </section>

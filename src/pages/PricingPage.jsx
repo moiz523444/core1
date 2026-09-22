@@ -61,7 +61,7 @@ export default function PricingPage() {
                   features: ['Technical Architecture', 'Core UI/UX Lab', 'Standard Engineering', 'Deployment Hub']
                 },
                 { 
-                  tier: 'Scale Core', 
+                  tier: 'Scale Blazincode', 
                   price: 'From $45k', 
                   desc: 'Full-scale engineering for established brands moving to the next level.',
                   features: ['Advanced Systems', 'Custom UI Language', 'Performance Audit', '24/7 Priority Ops', 'Neural Integration']
@@ -104,7 +104,7 @@ export default function PricingPage() {
           <h2 className="text-4xl md:text-7xl font-bold uppercase tracking-tighter mb-12">
             Have <span className="text-accent">Questions?</span>
           </h2>
-          <button onClick={() => navigate('/contact')} className="btn-core">
+          <button onClick={() => navigate('/contact')} className="btn-blazincode">
             <span className="btn-bg bg-white" />
             <span className="relative z-10 text-[11px] font-bold uppercase tracking-[0.3em] flex items-center gap-4">
               View FAQ Matrix <ArrowRight size={16} />

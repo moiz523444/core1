@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import Logo from '../components/ui/Logo';
 
 export default function Admin() {
-  const [token, setToken] = useState(sessionStorage.getItem('core1_admin_token') || null);
+  const [token, setToken] = useState(sessionStorage.getItem('blazincode_admin_token') || null);
   const [password, setPassword] = useState('');
   const [status, setStatus] = useState('idle');
   const [leads, setLeads] = useState({ contacts: [], estimates: [] });
@@ -22,7 +22,7 @@ export default function Admin() {
       });
       const data = await res.json();
       if (data.success) {
-        sessionStorage.setItem('core1_admin_token', data.token);
+        sessionStorage.setItem('blazincode_admin_token', data.token);
         setToken(data.token);
         setStatus('idle');
       } else {
@@ -34,7 +34,7 @@ export default function Admin() {
   };
 
   const handleLogout = () => {
-    sessionStorage.removeItem('core1_admin_token');
+    sessionStorage.removeItem('blazincode_admin_token');
     setToken(null);
   };
 
@@ -85,7 +85,7 @@ export default function Admin() {
           
           <div className="text-center mb-12">
             <h1 className="text-2xl font-bold uppercase tracking-[0.4em] mb-2 text-white">Vault Access</h1>
-            <p className="text-[10px] font-bold text-white/20 uppercase tracking-[0.2em]">Restricted Core 1 Interface</p>
+            <p className="text-[10px] font-bold text-white/20 uppercase tracking-[0.2em]">Restricted Blazincode Interface</p>
           </div>
           
           <form onSubmit={handleLogin} className="w-full space-y-8">
@@ -102,7 +102,7 @@ export default function Admin() {
             <button 
               disabled={status === 'loading'}
               type="submit" 
-              className="btn-core w-full flex justify-center py-6 text-[10px] font-bold tracking-[0.3em] uppercase bg-white text-black hover:bg-accent transition-all disabled:opacity-50"
+              className="btn-blazincode w-full flex justify-center py-6 text-[10px] font-bold tracking-[0.3em] uppercase bg-white text-black hover:bg-accent transition-all disabled:opacity-50"
             >
               <span className="btn-bg bg-accent" />
               <span className="relative z-10">{status === 'loading' ? 'Deciphering...' : 'Authorize Entry'}</span>

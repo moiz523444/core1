@@ -28,7 +28,7 @@ export default function ContactPage() {
 
               <div className="space-y-8">
                 {[
-                  { icon: <Mail />, label: 'Email', value: 'Contact@core1.co' },
+                  { icon: <Mail />, label: 'Email', value: 'Contact@blazincode.co' },
                   { icon: <MessageSquare />, label: 'Inquiry', value: 'Start a project' },
                   { icon: <MapPin />, label: 'Location', value: 'Global / Remote' }
                 ].map((item, i) => (
@@ -96,7 +96,7 @@ export default function ContactPage() {
                   />
                 </div>
 
-                <button type="submit" className="w-full btn-core group">
+                <button type="submit" className="w-full btn-blazincode group">
                   <span className="btn-bg bg-white" />
                   <span className="relative z-10 flex items-center justify-center gap-4 text-[11px] font-bold uppercase tracking-[0.4em]">
                     Send Transmission <ArrowRight size={16} />

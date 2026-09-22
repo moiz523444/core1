@@ -67,7 +67,7 @@ const sendMail = async (to, subject, html) => {
     return;
   }
   return transporter.sendMail({
-    from: process.env.SMTP_FROM || 'Core 1 Agency <no-reply@core1.com>',
+    from: process.env.SMTP_FROM || 'Blazincode Agency <no-reply@blazincode.com>',
     to,
     subject,
     html,
@@ -80,7 +80,7 @@ const ADMIN_PASS = process.env.ADMIN_PASSWORD || 'admin123';
 app.post('/api/admin/login', (req, res) => {
   const { password } = req.body;
   if (password === ADMIN_PASS) {
-    res.status(200).json({ success: true, token: 'core1-secure-token-2026' });
+    res.status(200).json({ success: true, token: 'blazincode-secure-token-2026' });
   } else {
     res.status(401).json({ success: false, message: 'Invalid credentials' });
   }
@@ -88,7 +88,7 @@ app.post('/api/admin/login', (req, res) => {
 
 app.get('/api/admin/leads', async (req, res) => {
   const token = req.headers['authorization'];
-  if (token !== 'Bearer core1-secure-token-2026') {
+  if (token !== 'Bearer blazincode-secure-token-2026') {
     return res.status(403).json({ success: false, message: 'Forbidden' });
   }
   try {
@@ -101,7 +101,7 @@ app.get('/api/admin/leads', async (req, res) => {
 
 // Routes
 app.get('/', (req, res) => {
-  res.send('Core 1 API is running smoothly.');
+  res.send('Blazincode API is running smoothly.');
 });
 
 // Contact/Inquiry Endpoint
@@ -137,10 +137,10 @@ app.post('/api/connect', async (req, res) => {
       <div style="font-family: Arial, sans-serif; max-width: 600px; padding: 20px;">
         <h2 style="color: #000;">Thank you, ${name}!</h2>
         <p>We have received your message and our team will get back to you shortly.</p>
-        <p>- Core 1 Agency</p>
+        <p>- Blazincode Agency</p>
       </div>
     `;
-    await sendMail(email, `We received your inquiry - Core 1`, userReply);
+    await sendMail(email, `We received your inquiry - Blazincode`, userReply);
 
     res.status(200).json({ success: true, message: 'Message sent successfully.' });
   } catch (error) {
@@ -186,7 +186,7 @@ app.post('/api/estimate', async (req, res) => {
     // Send copy to client
     const clientCopy = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; padding: 20px;">
-        <h2>Your Core 1 Project Estimate</h2>
+        <h2>Your Blazincode Project Estimate</h2>
         <p>Hi there,</p>
         <p>You recently locked in an estimate with us. Here is a copy of your scope:</p>
         <ul>
@@ -196,10 +196,10 @@ app.post('/api/estimate', async (req, res) => {
         </ul>
         <h3>Estimated Investment: $${total}</h3>
         <p>Our strategy team will be in touch shortly to refine this scope.</p>
-        <p>- Core 1</p>
+        <p>- Blazincode</p>
       </div>
     `;
-    await sendMail(email, `Your Core 1 Project Estimate`, clientCopy);
+    await sendMail(email, `Your Blazincode Project Estimate`, clientCopy);
 
     res.status(200).json({ success: true, message: 'Estimate locked.' });
   } catch (error) {

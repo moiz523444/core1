@@ -6,13 +6,13 @@ const reviews = [
     id: 1,
     name: "Sarah Jenkins",
     role: "Founder, TechFlow",
-    text: "Working with Core 1 was a game-changer for our startup. They took our messy requirements and delivered a flawless web app three weeks ahead of schedule. Highly recommended.",
+    text: "Working with Blazincode was a game-changer for our startup. They took our messy requirements and delivered a flawless web app three weeks ahead of schedule. Highly recommended.",
   },
   {
     id: 2,
     name: "David Chen",
     role: "CEO, GrowthEcom",
-    text: "We were losing sales because our old site was too slow. Core 1 rebuilt our platform from scratch, and our conversion rate literally doubled within the first month.",
+    text: "We were losing sales because our old site was too slow. Blazincode rebuilt our platform from scratch, and our conversion rate literally doubled within the first month.",
   },
   {
     id: 3,

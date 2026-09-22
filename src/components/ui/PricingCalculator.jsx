@@ -157,7 +157,7 @@ export default function PricingCalculator() {
                 {currentStep < steps.length - 1 && (
                   <button 
                     onClick={() => setCurrentStep(prev => prev + 1)}
-                    className="btn-core group"
+                    className="btn-blazincode group"
                   >
                     <span className="btn-bg bg-white" />
                     <span className="relative z-10 group-hover:text-black transition-colors duration-500">
@@ -204,7 +204,7 @@ export default function PricingCalculator() {
                  <button 
                   onClick={handleEstimateSubmit}
                   disabled={status === 'loading'}
-                  className="btn-core w-full flex justify-center items-center gap-4 text-[10px] font-bold tracking-[0.2em] uppercase disabled:opacity-50 h-20"
+                  className="btn-blazincode w-full flex justify-center items-center gap-4 text-[10px] font-bold tracking-[0.2em] uppercase disabled:opacity-50 h-20"
                  >
                     <span className="btn-bg bg-accent" />
                     <span className="relative z-10 flex items-center gap-4">
