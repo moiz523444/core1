@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, CheckCircle2, AlertCircle } from 'lucide-react';
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -27,6 +27,7 @@ export default function Contact() {
       if (data.success) {
         setStatus('success');
         setFormData({ name: '', email: '', message: '' });
+        setTimeout(() => setStatus('idle'), 5000);
       } else {
         setStatus('error');
       }
@@ -61,6 +62,34 @@ export default function Contact() {
             viewport={{ once: true }}
             className="p-8 md:p-12 border border-white/10 bg-white/[0.02] backdrop-blur-md rounded-lg"
           >
+            {status === 'success' && (
+              <motion.div 
+                initial={{ opacity: 0, y: -20 }} 
+                animate={{ opacity: 1, y: 0 }} 
+                className="mb-8 p-4 rounded-2xl bg-green-500/10 border border-green-500/20 flex items-start gap-4"
+              >
+                <CheckCircle2 className="text-green-500 shrink-0 mt-0.5" size={20} />
+                <div>
+                  <h4 className="text-green-500 font-bold text-sm uppercase tracking-widest mb-1">Transmission Successful</h4>
+                  <p className="text-green-500/70 text-sm">We have received your message. Our team will contact you shortly.</p>
+                </div>
+              </motion.div>
+            )}
+
+            {status === 'error' && (
+              <motion.div 
+                initial={{ opacity: 0, y: -20 }} 
+                animate={{ opacity: 1, y: 0 }} 
+                className="mb-8 p-4 rounded-2xl bg-red-500/10 border border-red-500/20 flex items-start gap-4"
+              >
+                <AlertCircle className="text-red-500 shrink-0 mt-0.5" size={20} />
+                <div>
+                  <h4 className="text-red-500 font-bold text-sm uppercase tracking-widest mb-1">Transmission Failed</h4>
+                  <p className="text-red-500/70 text-sm">There was a problem sending your message. Please check the backend SMTP credentials in .env and try again.</p>
+                </div>
+              </motion.div>
+            )}
+
             <form onSubmit={handleSubmit} className="space-y-8">
               <div className="space-y-2">
                 <label className="text-xs font-bold tracking-[0.3em] text-white/40 uppercase">Name</label>

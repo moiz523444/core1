@@ -1,8 +1,48 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, MessageSquare, MapPin, ArrowRight, Camera, Send, Users } from 'lucide-react';
+import { Mail, MessageSquare, MapPin, ArrowRight, Camera, Send, Users, CheckCircle2, AlertCircle } from 'lucide-react';
 
 export default function ContactPage() {
+  const [formData, setFormData] = useState({ name: '', email: '', service: 'Web Application', message: '' });
+  const [status, setStatus] = useState('');
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!formData.name || !formData.email || !formData.message) return;
+
+    setStatus('loading');
+    
+    try {
+      const res = await fetch('http://localhost:5000/api/connect', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: `Service: ${formData.service}\n\n${formData.message}`
+        })
+      });
+      
+      const data = await res.json();
+      if (data.success) {
+        setStatus('success');
+        setFormData({ name: '', email: '', service: 'Web Application', message: '' });
+        
+        // Hide success message after 5 seconds
+        setTimeout(() => setStatus(''), 5000);
+      } else {
+        setStatus('error');
+      }
+    } catch (err) {
+      console.error(err);
+      setStatus('error');
+    }
+  };
+
   return (
     <div className="pt-20">
       <section className="py-24 md:py-48 relative">
@@ -28,7 +68,7 @@ export default function ContactPage() {
 
               <div className="space-y-8">
                 {[
-                  { icon: <Mail />, label: 'Email', value: 'Contact@blazincode.co' },
+                  { icon: <Mail />, label: 'Email', value: 'sales@blazincode.com' },
                   { icon: <MessageSquare />, label: 'Inquiry', value: 'Start a project' },
                   { icon: <MapPin />, label: 'Location', value: 'Global / Remote' }
                 ].map((item, i) => (
@@ -58,13 +98,46 @@ export default function ContactPage() {
 
             {/* Form Column */}
             <div className="glass-card p-8 md:p-16 rounded-[3rem] relative">
-              <form onSubmit={(e) => { e.preventDefault(); alert("Message sent successfully! We will get back to you shortly."); }} className="space-y-12">
+              
+              {status === 'success' && (
+                <motion.div 
+                  initial={{ opacity: 0, y: -20 }} 
+                  animate={{ opacity: 1, y: 0 }} 
+                  className="mb-8 p-4 rounded-2xl bg-green-500/10 border border-green-500/20 flex items-start gap-4"
+                >
+                  <CheckCircle2 className="text-green-500 shrink-0 mt-0.5" size={20} />
+                  <div>
+                    <h4 className="text-green-500 font-bold text-sm uppercase tracking-widest mb-1">Transmission Successful</h4>
+                    <p className="text-green-500/70 text-sm">We have received your message. Our team will contact you shortly.</p>
+                  </div>
+                </motion.div>
+              )}
+
+              {status === 'error' && (
+                <motion.div 
+                  initial={{ opacity: 0, y: -20 }} 
+                  animate={{ opacity: 1, y: 0 }} 
+                  className="mb-8 p-4 rounded-2xl bg-red-500/10 border border-red-500/20 flex items-start gap-4"
+                >
+                  <AlertCircle className="text-red-500 shrink-0 mt-0.5" size={20} />
+                  <div>
+                    <h4 className="text-red-500 font-bold text-sm uppercase tracking-widest mb-1">Transmission Failed</h4>
+                    <p className="text-red-500/70 text-sm">There was a problem sending your message. Please try again.</p>
+                  </div>
+                </motion.div>
+              )}
+
+              <form onSubmit={handleSubmit} className="space-y-12">
                 <div className="space-y-2 border-b border-white/10 pb-4 focus-within:border-accent transition-colors">
                   <label className="text-[10px] font-bold uppercase tracking-widest text-white/40">Full Name</label>
                   <input 
                     type="text" 
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
                     placeholder="Enter your name" 
                     className="w-full bg-transparent text-xl font-light focus:outline-none placeholder:text-white/10"
+                    required
                   />
                 </div>
                 
@@ -72,14 +145,23 @@ export default function ContactPage() {
                   <label className="text-[10px] font-bold uppercase tracking-widest text-white/40">Email Address</label>
                   <input 
                     type="email" 
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
                     placeholder="hello@company.com" 
                     className="w-full bg-transparent text-xl font-light focus:outline-none placeholder:text-white/10"
+                    required
                   />
                 </div>
 
                 <div className="space-y-2 border-b border-white/10 pb-4 focus-within:border-accent transition-colors">
                   <label className="text-[10px] font-bold uppercase tracking-widest text-white/40">Service Type</label>
-                  <select className="w-full bg-transparent text-xl font-light focus:outline-none appearance-none cursor-pointer">
+                  <select 
+                    name="service"
+                    value={formData.service}
+                    onChange={handleChange}
+                    className="w-full bg-transparent text-xl font-light focus:outline-none appearance-none cursor-pointer"
+                  >
                     <option className="bg-black">Web Application</option>
                     <option className="bg-black">Mobile Engineering</option>
                     <option className="bg-black">UI/UX Design Lab</option>
@@ -90,16 +172,20 @@ export default function ContactPage() {
                 <div className="space-y-2 border-b border-white/10 pb-4 focus-within:border-accent transition-colors">
                   <label className="text-[10px] font-bold uppercase tracking-widest text-white/40">Project Message</label>
                   <textarea 
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
                     rows="4" 
                     placeholder="Tell us about your vision..." 
                     className="w-full bg-transparent text-xl font-light focus:outline-none placeholder:text-white/10 resize-none"
+                    required
                   />
                 </div>
 
-                <button type="submit" className="w-full btn-blazincode group">
+                <button type="submit" disabled={status === 'loading'} className="w-full btn-blazincode group disabled:opacity-50">
                   <span className="btn-bg bg-white" />
                   <span className="relative z-10 flex items-center justify-center gap-4 text-[11px] font-bold uppercase tracking-[0.4em]">
-                    Send Transmission <ArrowRight size={16} />
+                    {status === 'loading' ? 'Sending...' : 'Send Transmission'} <ArrowRight size={16} />
                   </span>
                 </button>
               </form>

@@ -17,7 +17,6 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-16 md:gap-24">
           <div className="md:col-span-2 space-y-12">
             <div className="space-y-8">
-              <Logo size={16} className="opacity-100" />
               <h2 className="text-4xl md:text-6xl font-bold uppercase tracking-tighter leading-[0.9]">
                 Build Your <br />{" "}
                 <span className="text-white/20">Future.</span>
@@ -84,11 +83,11 @@ export default function Footer() {
                   Email
                 </span>
                 <a
-                  href="mailto:Contact@blazincode.co"
+                  href="mailto:sales@blazincode.com"
                   className="text-lg md:text-xl text-white/70 hover:text-accent transition-colors flex items-center gap-4 break-words"
                 >
                   <Mail size={20} className="text-accent/40 flex-shrink-0" />{" "}
-                  <span className="break-all">Contact@blazincode.co</span>
+                  <span className="break-all">sales@blazincode.com</span>
                 </a>
               </li>
               <li className="space-y-3">
@@ -96,10 +95,10 @@ export default function Footer() {
                   Phone
                 </span>
                 <a
-                  href="tel:+923001234567"
+                  href="tel:+15412048656"
                   className="text-lg md:text-xl text-white/70 hover:text-accent transition-colors flex items-center gap-4"
                 >
-                  <Phone size={20} className="text-accent/40 flex-shrink-0" /> +92 300 1234567
+                  <Phone size={20} className="text-accent/40 flex-shrink-0" /> +1 541 204 8656
                 </a>
               </li>
               <li className="space-y-3">

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export default function Logo({ className = "", size = 32 }) {
+export default function Logo({ className = "", imgClassName = "" }) {
   const navigate = useNavigate();
 
   const handleLogoClick = () => {
@@ -12,15 +12,13 @@ export default function Logo({ className = "", size = 32 }) {
   return (
     <div 
       onClick={handleLogoClick}
-      className={`flex items-center gap-3 cursor-pointer group ${className}`}
+      className={`flex items-center cursor-pointer group ${className}`}
     >
-      <div className="relative flex items-center justify-center" style={{ width: size, height: size }}>
-        <img src="/favicon.svg" alt="Blazincode Logo" className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110" />
-      </div>
-      <div className="flex items-baseline gap-1">
-        <span className="text-xl md:text-2xl font-black tracking-tighter uppercase text-white">Blazin</span>
-        <span className="text-xl md:text-2xl font-black tracking-tighter uppercase text-secondary">code</span>
-      </div>
+      <img 
+        src="/logo1.png" 
+        alt="Blazincode Logo" 
+        className={`object-contain transition-transform duration-500 group-hover:scale-105 ${imgClassName || 'w-32 md:w-44 h-auto -my-12 md:-my-16 max-w-none'}`} 
+      />
     </div>
   );
 }

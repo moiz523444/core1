@@ -216,7 +216,10 @@ body {
   .btn-premium::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     border-radius: 9999px;
     padding: 1px;
     background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.05));
@@ -226,7 +229,7 @@ body {
     pointer-events: none;
     transition: all 0.5s ease;
   }
-  
+
   .btn-premium:hover {
     box-shadow: 0 0 40px rgba(255, 255, 255, 0.1) inset, 0 0 40px rgba(255, 255, 255, 0.1);
     border-color: rgba(255, 255, 255, 0.4);
