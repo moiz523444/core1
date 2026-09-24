@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, MessageSquare, MapPin, ArrowRight, Camera, Send, Users, CheckCircle2, AlertCircle } from 'lucide-react';
-
+import SEO from '../components/SEO';
 export default function ContactPage() {
   const [formData, setFormData] = useState({ name: '', email: '', service: 'Web Application', message: '' });
   const [status, setStatus] = useState('');
@@ -45,6 +45,12 @@ export default function ContactPage() {
 
   return (
     <div className="pt-20">
+      <SEO 
+        title="Contact Us" 
+        description="Get in touch with Blazincode. We are ready to architect your next digital foundation. Available for global projects." 
+        keywords="contact blazincode, hire software agency, project inquiry" 
+        url="https://blazincode.com/contact"
+      />
       <section className="py-24 md:py-48 relative">
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-24 items-start">
@@ -68,9 +74,9 @@ export default function ContactPage() {
 
               <div className="space-y-8">
                 {[
-                  { icon: <Mail />, label: 'Email', value: 'sales@blazincode.com' },
+                  { icon: <Mail />, label: 'Email', value: 'support@blazincode.com' },
                   { icon: <MessageSquare />, label: 'Inquiry', value: 'Start a project' },
-                  { icon: <MapPin />, label: 'Location', value: 'Global / Remote' }
+                  { icon: <MapPin />, label: 'Location', value: 'United States' }
                 ].map((item, i) => (
                   <div key={i} className="flex items-center gap-6 group cursor-pointer">
                     <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-500">
@@ -87,9 +93,13 @@ export default function ContactPage() {
               <div className="pt-8 space-y-6">
                 <span className="text-[10px] font-bold tracking-widest text-white/20 uppercase block">Follow Us</span>
                 <div className="flex gap-4">
-                  {[<Camera />, <Send />, <Users />].map((icon, i) => (
-                    <button onClick={() => window.open('https://linkedin.com', '_blank')} key={i} className="p-4 border border-white/5 rounded-full hover:bg-white/5 transition-colors">
-                      {React.cloneElement(icon, { size: 18, strokeWidth: 1.5 })}
+                  {[
+                    { icon: <Camera />, link: 'https://www.instagram.com/Blazincode/' },
+                    { icon: <Users />, link: 'https://www.facebook.com/Blazincode/' },
+                    { icon: <Send />, link: 'https://www.linkedin.com/company/blazincode' }
+                  ].map((item, i) => (
+                    <button onClick={() => window.open(item.link, '_blank')} key={i} className="p-4 border border-white/5 rounded-full hover:bg-white/5 transition-colors">
+                      {React.cloneElement(item.icon, { size: 18, strokeWidth: 1.5 })}
                     </button>
                   ))}
                 </div>

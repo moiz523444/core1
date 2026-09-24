@@ -1,13 +1,39 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Shield, Target, Zap, Award } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import SEO from '../components/SEO';
+
+const AnimatedNumber = ({ value, suffix = "" }) => {
+  const [count, setCount] = useState(0);
+  
+  useEffect(() => {
+    let startTime;
+    const duration = 2000;
+    const animate = (time) => {
+      if (!startTime) startTime = time;
+      const progress = Math.min((time - startTime) / duration, 1);
+      const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+      setCount(Math.floor(easeProgress * value));
+      if (progress < 1) requestAnimationFrame(animate);
+    };
+    requestAnimationFrame(animate);
+  }, [value]);
+
+  return <>{count}{suffix}</>;
+};
 
 export default function AboutPage() {
   const navigate = useNavigate();
 
   return (
     <div className="pt-20">
+      <SEO 
+        title="About Us" 
+        description="Learn about Blazincode's philosophy, global network, and elite team of software engineers and designers." 
+        keywords="about blazincode, software team, tech agency" 
+        url="https://blazincode.com/about"
+      />
       {/* Hero Section */}
       <section className="py-24 md:py-48 relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full mesh-gradient opacity-20 pointer-events-none" />
@@ -55,14 +81,27 @@ export default function AboutPage() {
           </div>
           
           <div className="relative">
-            <div className="aspect-square bg-zinc-900 rounded-[3rem] overflow-hidden border border-white/5 relative group">
-              <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent opacity-50" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                 <div className="w-1/2 h-1/2 border border-white/10 rounded-full animate-pulse" />
-                 <div className="absolute w-1/3 h-1/3 border border-white/20 rounded-full animate-ping" />
+            <div className="aspect-square rounded-[3rem] overflow-hidden border border-white/10 relative group shadow-2xl">
+              {/* 3D Image Background */}
+              <div 
+                className="absolute inset-0 bg-cover bg-center transform group-hover:scale-105 transition-transform duration-1000 ease-in-out"
+                style={{ backgroundImage: "url('/aesthetic_bg.jpg')" }}
+              />
+              
+              {/* Overlay Gradient for contrast */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-700" />
+              
+              {/* Floating Tech Elements Overlay */}
+              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                <div className="w-[120%] h-[120%] border border-white/10 rounded-full border-dashed animate-[spin_20s_linear_infinite]" />
               </div>
-              <div className="absolute bottom-12 left-12 right-12 text-center">
-                  <span className="text-[10px] font-bold tracking-[0.5em] uppercase text-white/20">Aesthetic Authority</span>
+
+              {/* Enhanced Label */}
+              <div className="absolute bottom-10 left-0 right-0 flex justify-center">
+                  <div className="px-6 py-2.5 bg-black/60 backdrop-blur-xl border border-white/20 rounded-full shadow-[0_0_20px_rgba(255,255,255,0.1)]">
+                    <span className="text-[10px] font-bold tracking-[0.5em] uppercase text-white/80">Aesthetic Authority</span>
+                  </div>
               </div>
             </div>
           </div>
@@ -81,19 +120,26 @@ export default function AboutPage() {
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/10 border border-white/10 overflow-hidden rounded-3xl">
             {[
-              { label: 'Founded', value: '2022' },
-              { label: 'Projects', value: '150+' },
-              { label: 'Regions', value: '24' },
-              { label: 'Team', value: 'Elite' }
+              { label: 'Founded', value: 2022, suffix: '' },
+              { label: 'Projects', value: 150, suffix: '+' },
+              { label: 'Regions', value: 24, suffix: '' },
+              { label: 'Team', value: 'Elite', suffix: '' }
             ].map((stat, i) => (
-              <div key={i} className="bg-black p-12 text-center group">
+              <motion.div 
+                key={i} 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                className="bg-black p-12 text-center group"
+              >
                 <span className="text-[10px] font-bold tracking-widest text-accent/40 uppercase block mb-4 group-hover:text-accent transition-colors">
                   {stat.label}
                 </span>
                 <span className="text-4xl md:text-6xl font-bold font-display uppercase tracking-tighter group-hover:scale-110 transition-transform block">
-                  {stat.value}
+                  {typeof stat.value === 'number' ? <AnimatedNumber value={stat.value} suffix={stat.suffix} /> : stat.value}
                 </span>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

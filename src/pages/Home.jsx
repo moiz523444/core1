@@ -1,4 +1,5 @@
 import React from 'react';
+import SEO from '../components/SEO';
 import Hero from '../components/layout/Hero';
 import Testimonials from '../components/layout/Testimonials';
 import About from '../components/layout/About';
@@ -13,6 +14,11 @@ import ScrollReveal from '../components/ui/ScrollReveal';
 export default function Home() {
   return (
     <>
+      <SEO 
+        title="Software Development Agency" 
+        description="Blazincode is a premium software development agency specializing in scalable web applications, mobile apps, and enterprise solutions." 
+        keywords="software agency, web development, app development, scalable software" 
+      />
       <Hero />
       <ScrollReveal><About /></ScrollReveal>
       <ScrollReveal><Services /></ScrollReveal>

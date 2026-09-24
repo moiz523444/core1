@@ -28,9 +28,9 @@ export default function Footer() {
 
             <div className="flex gap-8">
               {[
-                { name: "Instagram", link: "https://instagram.com", icon: <ExternalLink size={20} /> },
-                { name: "Linkedin", link: "https://linkedin.com", icon: <ExternalLink size={20} /> },
-                { name: "Twitter", link: "https://twitter.com", icon: <ExternalLink size={20} /> },
+                { name: "Facebook", link: "https://www.facebook.com/Blazincode/", icon: <ExternalLink size={20} /> },
+                { name: "Instagram", link: "https://www.instagram.com/Blazincode/", icon: <ExternalLink size={20} /> },
+                { name: "Linkedin", link: "https://www.linkedin.com/company/blazincode", icon: <ExternalLink size={20} /> },
               ].map((social) => (
                 <a
                   key={social.name}
@@ -83,11 +83,11 @@ export default function Footer() {
                   Email
                 </span>
                 <a
-                  href="mailto:sales@blazincode.com"
+                  href="mailto:support@blazincode.com"
                   className="text-lg md:text-xl text-white/70 hover:text-accent transition-colors flex items-center gap-4 break-words"
                 >
                   <Mail size={20} className="text-accent/40 flex-shrink-0" />{" "}
-                  <span className="break-all">sales@blazincode.com</span>
+                  <span className="break-all">support@blazincode.com</span>
                 </a>
               </li>
               <li className="space-y-3">
@@ -95,10 +95,10 @@ export default function Footer() {
                   Phone
                 </span>
                 <a
-                  href="tel:+15412048656"
+                  href="tel:+14153048837"
                   className="text-lg md:text-xl text-white/70 hover:text-accent transition-colors flex items-center gap-4"
                 >
-                  <Phone size={20} className="text-accent/40 flex-shrink-0" /> +1 541 204 8656
+                  <Phone size={20} className="text-accent/40 flex-shrink-0" /> +1 415 304 8837
                 </a>
               </li>
               <li className="space-y-3">
@@ -106,8 +106,7 @@ export default function Footer() {
                   Location
                 </span>
                 <p className="text-lg md:text-xl text-white/70 flex items-center gap-4">
-                  <Globe size={20} className="text-accent/40 flex-shrink-0" /> Worldwide /
-                  Remote
+                  <Globe size={20} className="text-accent/40 flex-shrink-0" /> United States
                 </p>
               </li>
             </ul>

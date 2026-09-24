@@ -3,10 +3,17 @@ import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SERVICES_DATA } from '../data/services.jsx';
+import SEO from '../components/SEO';
 
 export default function ServicesPage() {
   return (
     <div className="pt-20">
+      <SEO 
+        title="Our Services" 
+        description="Explore our capabilities in Software Engineering, Web Applications, Enterprise Solutions, and UI/UX Design." 
+        keywords="software services, web development, UI/UX, enterprise architecture" 
+        url="https://blazincode.com/services"
+      />
       {/* Page Hero */}
       <section className="py-24 md:py-48 relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full mesh-gradient opacity-20 pointer-events-none" />
